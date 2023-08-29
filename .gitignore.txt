@@ -13,3 +13,13 @@
 **/.history
 
 # End of https://www.gitignore.io/api/visualstudiocode
+
+core.Microsoft*
+core.mongo*
+core.python*
+env.py
+__pycache__/
+*.py[cod]
+node_modules/
+.github/
+cloudinary_python.txt
