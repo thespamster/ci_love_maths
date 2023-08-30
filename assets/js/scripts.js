@@ -45,8 +45,7 @@ function runGame(gameType) {
     } else if (gameType === "subtract" ) {
         displaySubtractQuestion(num1, num2);
     } else {
-        alert(`Unknown game type: ${gameType}`);
-        throw `Unknown game type: ${gameType}. Aborting!`;
+        displayDivideQuestion(num1, num2);
     }
 
 }
@@ -90,8 +89,7 @@ function calculateCorrectAnswer() {
     } else if (operator === "-") {
         return [operand1 - operand2, "subtract"];
     } else {
-        alert(`Unimplemented operator ${operator}`);
-        throw `Unimplemented operator ${operator}. Aborting!`;
+        return [operand1 / operand2, "divide"];
     }
 
 }
@@ -138,4 +136,20 @@ function displayMultiplyQuestion(operand1, operand2) {
     document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = "x";
 
+}
+
+/**
+ * my code to provide a division question. keeps the numbers in the 1-25 range. while loop ensures that the answer is a whole number.
+ */
+function displayDivideQuestion(operand1, operand2) {
+
+  while ( operand1 % operand2 !== 0) {
+      operand1 = Math.floor(Math.random() * 25) + 1;
+      operand2 = Math.floor(Math.random() * 25) + 1;  
+  } 
+
+  document.getElementById("operand1").textContent = operand1;
+  document.getElementById("operand2").textContent = operand2; 
+  document.getElementById('operator').textContent = "/";
+  
 }
